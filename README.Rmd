@@ -19,7 +19,7 @@ county %>%
   mutate(rn = rnorm(nrow(.), mean = 100, sd = 10)) %>% 
 ggplot(aes(fill = rn)) +
   geom_sf(show.legend = FALSE) +
-  ggthemes::theme_map() +
+  theme_swemap2() +
   scale_fill_viridis_c(option = "magma")
 ```
 
@@ -55,7 +55,7 @@ county %>%
 ggplot(aes(fill = random_number)) +
   geom_sf() +
   scale_fill_viridis_c() +
-  theme_swemap()
+  theme_swemap2()
 ```
 
 Municipality (kommun):
@@ -65,7 +65,8 @@ municipality %>%
   mutate(random_number = rnorm(nrow(.), mean = 100, sd = 10) ) %>% 
 ggplot(aes(fill = random_number)) +
   geom_sf() +
-  scale_fill_viridis_c()
+  scale_fill_viridis_c() +
+  theme_swemap2()
 ```
 
 Using a package like `leaflet` and `simplevis` you can create interactive maps:
@@ -88,7 +89,8 @@ fa_region %>%
   mutate(random_number = rnorm(nrow(.), mean = 100, sd = 10) ) %>% 
 ggplot(aes(fill = random_number)) +
   geom_sf() +
-  scale_fill_viridis_c()
+  scale_fill_viridis_c() +
+  theme_swemap()
 ```
 
 
@@ -106,7 +108,8 @@ deso %>%
   geom_sf() +
   labs(
     title = "Map over Kalmar"
-  )
+  ) +
+  theme_swemap2()
 ```
 
 ```{r eval=FALSE}
@@ -133,7 +136,8 @@ ggplot(sthlm, aes(fill = kvinnor_45)) +
   labs(
     title = "Stockholm women 45",
     caption = "Source: https://dataportalen.stockholm.se"
-  )
+  ) +
+  theme_swemap2()
 ```
 
 ## Göteborg
@@ -142,8 +146,9 @@ Gothenburg has the largest map:
 
 ```{r}
 ggplot(gbg, aes(fill = area_km2)) +
-         geom_sf() +
+  geom_sf() +
   scale_fill_viridis_c() +
+  theme_swemap2() +
   labs(
     title = "Gothenburg by area size",
     caption = "Source: http://statistikdatabas.goteborg.se/pxweb/sv/"
@@ -156,6 +161,7 @@ ggplot(gbg, aes(fill = area_km2)) +
 ggplot(malmo, aes(fill = area)) +
   geom_sf() +
   scale_fill_viridis_c() +
+  theme_swemap2() +
   labs(
     title = "Malmö by area size",
     caption = "Source: https://malmo.dataplatform.se/"

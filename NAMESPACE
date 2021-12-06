@@ -3,6 +3,7 @@
 export(load_deso)
 export(load_regso)
 export(theme_swemap)
+export(theme_swemap2)
 importFrom(dplyr,rename)
 importFrom(ggplot2,"%+replace%")
 importFrom(glue,glue)

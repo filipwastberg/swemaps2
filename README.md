@@ -7,7 +7,8 @@ of Sweden in R.
 ![](README_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
 
 This is the successor of
-[`swemaps`](https://github.com/reinholdsson/swemaps) by @reinholdsson
+[`swemaps`](https://github.com/reinholdsson/swemaps) by
+\[@reinholdsson\](<https://github.com/reinholdsson>)
 
 ## Installation
 
@@ -62,7 +63,8 @@ county %>%
   mutate(random_number = rnorm(nrow(.), mean = 100, sd = 10) ) %>% 
 ggplot(aes(fill = random_number)) +
   geom_sf() +
-  scale_fill_viridis_c()
+  scale_fill_viridis_c() +
+  theme_swemap2()
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
@@ -74,7 +76,8 @@ municipality %>%
   mutate(random_number = rnorm(nrow(.), mean = 100, sd = 10) ) %>% 
 ggplot(aes(fill = random_number)) +
   geom_sf() +
-  scale_fill_viridis_c()
+  scale_fill_viridis_c() +
+  theme_swemap2()
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
@@ -99,7 +102,8 @@ fa_region %>%
   mutate(random_number = rnorm(nrow(.), mean = 100, sd = 10) ) %>% 
 ggplot(aes(fill = random_number)) +
   geom_sf() +
-  scale_fill_viridis_c()
+  scale_fill_viridis_c() +
+  theme_swemap()
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
@@ -115,7 +119,7 @@ deso <- load_deso()
 ```
 
     ## Reading layer `DeSO_2018_v2' from data source 
-    ##   `/private/var/folders/pn/9hhpnpd15_d2k3qp5k814nnh0000gq/T/RtmpsVx7gt/deso_2018_2021-10-21/DeSO_2018_v2.gpkg' 
+    ##   `/private/var/folders/pn/9hhpnpd15_d2k3qp5k814nnh0000gq/T/Rtmptq0336/deso_2018_2021-10-21/DeSO_2018_v2.gpkg' 
     ##   using driver `GPKG'
     ## Simple feature collection with 5984 features and 7 fields
     ## Geometry type: POLYGON
@@ -131,7 +135,8 @@ deso %>%
   geom_sf() +
   labs(
     title = "Map over Kalmar"
-  )
+  ) +
+  theme_swemap2()
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
@@ -162,7 +167,8 @@ ggplot(sthlm, aes(fill = kvinnor_45)) +
   labs(
     title = "Stockholm women 45",
     caption = "Source: https://dataportalen.stockholm.se"
-  )
+  ) +
+  theme_swemap2()
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
@@ -173,8 +179,9 @@ Gothenburg has the largest map:
 
 ``` r
 ggplot(gbg, aes(fill = area_km2)) +
-         geom_sf() +
+  geom_sf() +
   scale_fill_viridis_c() +
+  theme_swemap2() +
   labs(
     title = "Gothenburg by area size",
     caption = "Source: http://statistikdatabas.goteborg.se/pxweb/sv/"
@@ -189,6 +196,7 @@ ggplot(gbg, aes(fill = area_km2)) +
 ggplot(malmo, aes(fill = area)) +
   geom_sf() +
   scale_fill_viridis_c() +
+  theme_swemap2() +
   labs(
     title = "Malmö by area size",
     caption = "Source: https://malmo.dataplatform.se/"
