@@ -1,0 +1,23 @@
+Package: swemaps2
+Type: Package
+Title: Swedish map data for ggplot and leaflet in R
+Version: 0.0.1
+Date: 2021-12-06
+Authors@R: 
+    person(given = "Filip",
+           family = "Wastberg",
+           role = c("aut", "cre"),
+           email = "filip.wastberg@solita.se")
+Description: This package provide geographical data for making maps of Sweden in R.
+License: CC0
+LazyData: true
+RoxygenNote: 7.1.1
+Imports:
+    janitor,
+    glue,
+    sf,
+    stringr,
+    dplyr,
+    magrittr
+URL: https://github.com/filipwastberg/swemaps2
+BugReports: https://github.com/filipwastberg/swemaps2/issues
