@@ -23,7 +23,7 @@ ggplot(aes(fill = rn)) +
   scale_fill_viridis_c(option = "magma")
 ```
 
-This is the successor of [`swemaps`](https://github.com/reinholdsson/swemaps) by @reinholdsson
+This is the successor of [`swemaps`](https://github.com/reinholdsson/swemaps) by [@reinholdsson](https://github.com/reinholdsson)
 
 ## Installation
 
@@ -54,7 +54,8 @@ county %>%
   mutate(random_number = rnorm(nrow(.), mean = 100, sd = 10) ) %>% 
 ggplot(aes(fill = random_number)) +
   geom_sf() +
-  scale_fill_viridis_c()
+  scale_fill_viridis_c() +
+  theme_swemap()
 ```
 
 Municipality (kommun):

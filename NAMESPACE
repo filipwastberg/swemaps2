@@ -2,7 +2,9 @@
 
 export(load_deso)
 export(load_regso)
+export(theme_swemap)
 importFrom(dplyr,rename)
+importFrom(ggplot2,"%+replace%")
 importFrom(glue,glue)
 importFrom(janitor,clean_names)
 importFrom(magrittr,"%>%")
