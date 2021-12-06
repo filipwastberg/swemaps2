@@ -6,12 +6,12 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# swemaps
+# swemaps2
 
-The `swemaps` package provide map objects to easily make beautiful maps of Sweden in R. 
+The `swemaps2` package provide map objects to easily make beautiful maps of Sweden in R. 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-library(swemaps)
+library(swemaps2)
 library(tidyverse)
 library(sf)
 
@@ -23,17 +23,19 @@ ggplot(aes(fill = rn)) +
   scale_fill_viridis_c(option = "magma")
 ```
 
+This is the successor of [`swemaps`](https://github.com/reinholdsson/swemaps) by @reinholdsson
+
 ## Installation
 
 You can install the package from github:
 
 ```{r eval=FALSE}
-remotes::install_github("filipwastberg/swemaps")
+remotes::install_github("filipwastberg/swemaps2")
 ```
 
 ## Country maps
 
-`swemaps` contain simple features (sf) objects that make it easy to create maps over Sweden.
+`swemaps2` contain simple features (sf) objects that make it easy to create maps over Sweden.
 
 You can use these basic sf-objects to combine with data from SCB (using the [pxweb package](http://ropengov.github.io/pxweb/)) or Kolada (using the [rKolada package](https://github.com/lchansson/rKolada)).
 
@@ -44,7 +46,7 @@ county
 Using these objects it is easy to use ggplot to create beautiful maps for counties (Län) and municipality (Kommun):
 
 ```{r}
-library(swemaps)
+library(swemaps2)
 library(tidyverse)
 library(ggthemes)
 

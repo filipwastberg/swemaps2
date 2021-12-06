@@ -1,22 +1,25 @@
 
-# swemaps
+# swemaps2
 
-The `swemaps` package provide map objects to easily make beautiful maps
+The `swemaps2` package provide map objects to easily make beautiful maps
 of Sweden in R.
 
 ![](README_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
+
+This is the successor of
+[`swemaps`](https://github.com/reinholdsson/swemaps) by @reinholdsson
 
 ## Installation
 
 You can install the package from github:
 
 ``` r
-remotes::install_github("filipwastberg/swemaps")
+remotes::install_github("filipwastberg/swemaps2")
 ```
 
 ## Country maps
 
-`swemaps` contain simple features (sf) objects that make it easy to
+`swemaps2` contain simple features (sf) objects that make it easy to
 create maps over Sweden.
 
 You can use these basic sf-objects to combine with data from SCB (using
@@ -51,7 +54,7 @@ Using these objects it is easy to use ggplot to create beautiful maps
 for counties (Län) and municipality (Kommun):
 
 ``` r
-library(swemaps)
+library(swemaps2)
 library(tidyverse)
 library(ggthemes)
 
@@ -112,7 +115,7 @@ deso <- load_deso()
 ```
 
     ## Reading layer `DeSO_2018_v2' from data source 
-    ##   `/private/var/folders/pn/9hhpnpd15_d2k3qp5k814nnh0000gq/T/RtmpXH9Qwc/deso_2018_2021-10-21/DeSO_2018_v2.gpkg' 
+    ##   `/private/var/folders/pn/9hhpnpd15_d2k3qp5k814nnh0000gq/T/RtmpsVx7gt/deso_2018_2021-10-21/DeSO_2018_v2.gpkg' 
     ##   using driver `GPKG'
     ## Simple feature collection with 5984 features and 7 fields
     ## Geometry type: POLYGON
