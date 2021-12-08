@@ -3,14 +3,23 @@ output: github_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "75%",
+  warning = FALSE,
+  message = FALSE,
+  fig.retina = 2,
+  fig.align = 'center'
+)
 ```
 
 # swemaps2
 
 The `swemaps2` package provide map objects to easily make beautiful maps of Sweden in R. 
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=FALSE}
 library(swemaps2)
 library(tidyverse)
 library(sf)
@@ -23,7 +32,7 @@ ggplot(aes(fill = rn)) +
   scale_fill_viridis_c(option = "magma")
 ```
 
-This is the successor of [`swemaps`](https://github.com/reinholdsson/swemaps) by [@reinholdsson](https://github.com/reinholdsson)
+This is the successor of [`swemaps`](https://github.com/reinholdsson/swemaps) by [reinholdsson](https://github.com/reinholdsson)
 
 ## Installation
 
@@ -79,7 +88,7 @@ municipality %>%
   leaflet_sf_col(col_var = random_number)
 ```
 ```{r echo=FALSE}
-knitr::include_graphics("img/kommun-map.png")
+knitr::include_graphics("man/figures/kommun-map.png")
 ```
 
 The regional FA Region maps are also included:
@@ -120,7 +129,7 @@ deso %>%
 ```
 
 ```{r echo=FALSE}
-knitr::include_graphics("img/kalmar-map.png")
+knitr::include_graphics("man/figures/kalmar-map.png")
 ```
 
 ## City maps
