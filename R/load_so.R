@@ -1,6 +1,7 @@
 #' Load DeSO polgyons
 #'
 #' Function to read Swedish Demografiska statistikomraden (DeSO)
+#'
 #' @importFrom stringr str_extract str_remove
 #' @importFrom janitor clean_names
 #' @importFrom sf st_read

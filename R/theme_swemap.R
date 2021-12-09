@@ -18,8 +18,7 @@ theme_swemap <- function(base_size = 9, base_family = "") {
           plot.background = ggplot2::element_blank()
     )
 }
-
-#' Clean theme for maps
+#' Clean theme with gridlines for maps
 #'
 #' A clean theme for maps in ggplot2, but still with gridlines
 #' @inheritParams ggplot2::theme_grey

@@ -2,7 +2,7 @@
 % Please edit documentation in R/theme_swemap.R
 \name{theme_swemap2}
 \alias{theme_swemap2}
-\title{Clean}
+\title{Clean theme with gridlines for maps}
 \usage{
 theme_swemap2(base_size = 9, base_family = "")
 }
@@ -12,5 +12,5 @@ theme_swemap2(base_size = 9, base_family = "")
 \item{base_family}{base font family}
 }
 \description{
-Maps
+A clean theme for maps in ggplot2, but still with gridlines
 }

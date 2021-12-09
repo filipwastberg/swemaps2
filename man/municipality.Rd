@@ -9,6 +9,8 @@ SF object with 3 columns
 \describe{
   \item{kn_kod}{a character with municipality ID}
   \item{kn_namn}{a character with municipality name}
+  \item{ln_kod}{a character with region ID}
+  \item{ln_namn}{a character with region name}
   \item{geometry}{a multipolygon with municipality borders}
 }
 }
