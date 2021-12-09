@@ -1,21 +1,29 @@
 ---
-title: "Combining Swemaps with data from SCB"
+title: "combine-with-scb"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{combine-with-scb}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
   echo = TRUE,
   warning=FALSE,
   message=FALSE
 )
 ```
 
-Statistics Sweden (SCB) have a lot of interesting statistics that can be analyzed on a geographical level. Through their Database [Statistikdatabasen](http://www.statistikdatabasen.scb.se/pxweb/sv/ssd/)  you can download the data as Excel tables. Even better, you can use the R Open Gov package [pxweb](http://ropengov.github.io/pxweb/) to query data from SCB.
+Statistics Sweden (SCB) have a lot of interesting statistics that can be analyzed on a geographical level. Through their Database [Statistikdatabasen](http://www.statistikdatabasen.scb.se/pxweb/sv/ssd/) you can download the data as Excel tables. Even better, you can use the R Open Gov package [pxweb](http://ropengov.github.io/pxweb/) to query data from SCB.
 
 By running `pxweb_interactive()` you can interactively choose which data to query. In this case we're going to use data from Statistics Sweden.
 
 ```{r eval=FALSE}
 library(pxweb)
+
 pxweb_interactive()
 ```
 
