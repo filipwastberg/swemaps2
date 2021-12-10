@@ -14,7 +14,7 @@ SF object with 4 columns
 }
 }
 \source{
-{Stockholm stad, https://dataportalen.stockholm.se}
+{Malmo stad, https://malmo.dataplatform.se/}
 }
 \usage{
 malmo

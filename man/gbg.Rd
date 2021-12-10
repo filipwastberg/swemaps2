@@ -14,7 +14,7 @@ SF object with 4 columns
 }
 }
 \source{
-{Stockholm stad, https://dataportalen.stockholm.se}
+{Goteborg stad, http://statistikdatabas.goteborg.se/pxweb/sv/}
 }
 \usage{
 gbg

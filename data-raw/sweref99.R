@@ -11,25 +11,25 @@ unzip("data-raw/shape_svenska/LanRT90.zip", exdir = "data-raw/lan_rt90")
 ## Function to extract files
 extract_shape <- function(file){
   path <- glue::glue("data-raw/{file}")
-  
+
   to_dir <- paste0("data-raw/", snakecase::to_snake_case(str_remove(file, ".zip")))
-  
+
   unzip(glue::glue("data-raw/shape_svenska/{file}"), exdir = to_dir)
-  
+
   files <- list.files(to_dir)
-  
+
   shape_file <- tibble(
     files = files
-  ) %>% 
-    filter(str_detect(files, "shp")) %>% 
+  ) %>%
+    filter(str_detect(files, "shp")) %>%
     .$files
-  
+
   files_to_remove <- tibble(
     files = files
-  ) %>% 
-    filter(!str_detect(files, "shp")) %>% 
+  ) %>%
+    filter(!str_detect(files, "shp")) %>%
     .$files
-  
+
 }
 
 files <- list.files("data-raw/shape_svenska")
@@ -41,12 +41,12 @@ read_scb_sf <- function(folder){
 
   shape_file <- tibble(
     files = files
-  ) %>% 
-    filter(str_detect(files, "shp")) %>% 
+  ) %>%
+    filter(str_detect(files, "shp")) %>%
     .$files
-  
+
   if(isTRUE(str_detect(shape_file, ".shp"))){
-    read_sf(paste0(folder, "/", shape_file)) %>% 
+    read_sf(paste0(folder, "/", shape_file)) %>%
       janitor::clean_names()
 
   } else {
@@ -59,6 +59,17 @@ county <- read_scb_sf("data-raw/lan_sweref_99_tm")
 fa_region <- read_scb_sf("data-raw/f_aregion_sweref_99_tm")
 
 municipality <- read_scb_sf("data-raw/kommun_rt_90")
+
+regions <- swemaps2::load_deso() %>%
+  as_tibble() %>%
+  select(kommun, lan, lannamn) %>%
+  distinct()
+
+municipality <- municipality %>%
+  left_join(regions, by = c("kn_kod" = "kommun")) %>%
+  rename(ln_kod = lan,
+         ln_namn = lannamn) %>%
+  select(kn_kod, kn_namn, ln_kod, ln_namn, geometry)
 
 save(county, fa_region, municipality, file = "data/sweref99.rda", compress = "xz")
 

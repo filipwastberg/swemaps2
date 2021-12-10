@@ -19,6 +19,8 @@
 #' \describe{
 #'   \item{kn_kod}{a character with municipality ID}
 #'   \item{kn_namn}{a character with municipality name}
+#'   \item{ln_kod}{a character with region ID}
+#'   \item{ln_namn}{a character with region name}
 #'   \item{geometry}{a multipolygon with municipality borders}
 #' }
 #' @source {SCB, https://www.scb.se/hitta-statistik/regional-statistik-och-kartor/regionala-indelningar/digitala-granser/}
@@ -74,7 +76,7 @@
 #'   \item{area_km2}{a number describing area size in km2}
 #'   \item{geometry}{a multipolygon with region borders}
 #' }
-#' @source {Stockholm stad, https://dataportalen.stockholm.se}
+#' @source {Goteborg stad, http://statistikdatabas.goteborg.se/pxweb/sv/}
 "gbg"
 
 #' SF object with borders in Malmo
@@ -88,5 +90,5 @@
 #'   \item{area}{a number describing area size}
 #'   \item{geometry}{a multipolygon with region borders}
 #' }
-#' @source {Stockholm stad, https://dataportalen.stockholm.se}
+#' @source {Malmo stad, https://malmo.dataplatform.se/}
 "malmo"
