@@ -1,0 +1,32 @@
+url: https://filipwastberg.github.io/swemaps2
+
+template:
+  params:
+  opengraph:
+    image:
+      src: man/figures/swemaps.png
+      alt: "swemaps2 data package in R"
+    twitter:
+      creator: "@filipwastberrrg"
+      card: summary
+
+authors:
+  Filip Wastberg:
+    href: http://dataland.rbind.io/
+
+home:
+  title: swemaps2 R data package
+  description: Geographical data to easily create beautiful maps of Sweden
+
+navbar:
+  structure:
+    left:  [home, reference, articles]
+    right: [github]
+  components:
+      text: Articles
+      menu:
+      - text: "Combine swemaps2 with public data"
+      - text: Combine swemaps2 with data from SCB
+        href: articles/combine-with-scb.html
+      - text: Combine swemaps2 with data from Kolada
+        href: articles/combine-with-kolada.html
