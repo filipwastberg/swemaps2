@@ -1,8 +1,8 @@
 ---
-title: "combine-with-scb"
+title: "Combine swemaps2 with data from SCB"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{combine-with-scb}
+  %\VignetteIndexEntry{Combine swemaps2 with data from SCB}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -13,9 +13,12 @@ knitr::opts_chunk$set(
   comment = "#>",
   echo = TRUE,
   warning=FALSE,
-  message=FALSE
+  message=FALSE,
+  out.width = "100%"
 )
 ```
+
+## County & Municipality
 
 Statistics Sweden (SCB) have a lot of interesting statistics that can be analyzed on a geographical level. Through their Database [Statistikdatabasen](http://www.statistikdatabasen.scb.se/pxweb/sv/ssd/) you can download the data as Excel tables. Even better, you can use the R Open Gov package [pxweb](http://ropengov.github.io/pxweb/) to query data from SCB.
 
@@ -104,7 +107,7 @@ If we join population data we can
 ```{r}
 county <- county %>% 
   left_join(population, by = c("ln_namn" = "region")) %>% 
-  mutate(p_higher_education = higher_education / population)
+  mutate(p_higher_education = round(higher_education / population, 2))
 
 county
 ```
@@ -126,14 +129,10 @@ ggplot(county, aes(fill = p_higher_education)) +
 
 We can also create an interactive map with `simplevis` 
 
-```{r eval=FALSE}
+```{r}
 library(simplevis)
 
 leaflet_sf_col(county, col_var = "p_higher_education")
-```
-
-```{r}
-knitr::include_graphics("figures/simplevis-ex.png")
 ```
 
 ## DeSO & RegSO
