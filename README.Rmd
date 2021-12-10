@@ -80,12 +80,15 @@ ggplot(aes(fill = random_number)) +
 
 Using a package like `leaflet` and `simplevis` you can create interactive maps:
 
-```{r}
+```{r eval=FALSE}
 library(simplevis)
 
 municipality %>% 
   mutate(random_number = rnorm(nrow(.), mean = 100, sd = 10)) %>% 
   leaflet_sf_col(col_var = random_number)
+```
+```{r echo=FALSE}
+knitr::include_graphics("man/figures/kommun-map.png")
 ```
 
 The regional FA Region maps are also included:
