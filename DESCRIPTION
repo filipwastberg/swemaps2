@@ -22,7 +22,8 @@ Imports:
     magrittr,
     ggplot2
 Depends: R (>= 3.5.0)
-URL: https://github.com/filipwastberg/swemaps2
+URL: https://github.com/filipwastberg/swemaps2,
+    https://filipwastberg.github.io/swemaps2/
 BugReports: https://github.com/filipwastberg/swemaps2/issues
 Suggests: 
     rmarkdown,
