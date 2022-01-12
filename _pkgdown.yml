@@ -1,19 +1,4 @@
 url: https://filipwastberg.github.io/swemaps2/
-template: ~
-navbar:
-  structure:
-    left:
-    - home
-    - reference
-    - articles
-    right: github
-  components:
-    articles:
-      text: Articles
-      menu:
-      - text: Use swemaps2
-      - text: Combine swempas2 with data from SCB
-        href: articles/combine-with-scb.html
-      - text: Combine swempas2 with data from Kolada
-        href: articles/combine-with-kolada.html
+template:
+  bootstrap: 5
 
