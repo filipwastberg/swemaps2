@@ -116,7 +116,7 @@ works best if you first filter them.
 ``` r
 deso <- load_deso()
 #> Reading layer `DeSO_2018_v2' from data source 
-#>   `/private/var/folders/pn/9hhpnpd15_d2k3qp5k814nnh0000gq/T/Rtmp6hGh9H/deso_2018_2021-10-21/DeSO_2018_v2.gpkg' 
+#>   `/private/var/folders/pn/9hhpnpd15_d2k3qp5k814nnh0000gq/T/RtmpDaqRdo/deso_2018_2021-10-21/DeSO_2018_v2.gpkg' 
 #>   using driver `GPKG'
 #> Simple feature collection with 5984 features and 7 fields
 #> Geometry type: POLYGON

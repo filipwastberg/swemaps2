@@ -27,4 +27,12 @@ URL: https://github.com/filipwastberg/swemaps2,
 BugReports: https://github.com/filipwastberg/swemaps2/issues
 Suggests: 
     rmarkdown,
-    knitr
+    knitr,
+    tidyverse,
+    pxweb,
+    janitor,
+    rKolada,
+    scales,
+    ggrepel,
+    leaflet,
+    simplevis
