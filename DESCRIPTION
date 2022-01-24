@@ -30,7 +30,6 @@ Suggests:
     knitr,
     tidyverse,
     pxweb,
-    janitor,
     rKolada,
     scales,
     ggrepel,

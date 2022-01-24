@@ -1,13 +1,8 @@
 ---
 title: "Combine swemaps2 with data from Kolada"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{Combine swemaps2 with data from Kolada}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 ---
 
-```{r setup, include=FALSE}
+```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
