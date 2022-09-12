@@ -28,4 +28,8 @@ BugReports: https://github.com/filipwastberg/swemaps2/issues
 Suggests: 
     rmarkdown,
     knitr,
-    tidyverse
+    scales,
+    rKolada,
+    simplevis,
+    pxweb,
+    janitor
