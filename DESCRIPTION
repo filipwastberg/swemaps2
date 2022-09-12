@@ -29,6 +29,7 @@ Suggests:
     rmarkdown,
     knitr,
     scales,
+    tidyverse,
     rKolada,
     simplevis,
     pxweb,
