@@ -93,7 +93,7 @@ We can also create an interactive map with `simplevis`
 ```{r}
 library(simplevis)
 
-leaflet_sf_col(county_pop, col_var = "invanare_per_kvadratkilometer")
+leaf_sf_col(county_pop, col_var = "invanare_per_kvadratkilometer")
 ```
 
 ## DeSO & RegSO
