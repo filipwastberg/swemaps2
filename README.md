@@ -1,4 +1,5 @@
 
+[![R build status](https://github.com/filipwastberg/swemaps2/workflows/R-CMD-check/badge.svg)](https://github.com/filipwastberg/actions)
 # swemaps2
 
 The `swemaps2` package provide map objects to easily make beautiful maps
