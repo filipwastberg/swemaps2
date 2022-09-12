@@ -44,85 +44,46 @@ library(janitor)
 library(swemaps2)
 library(tidyverse)
 
-pxweb_query_list <- list(
-  "Region"= county$ln_kod, ## Only query county codes in swemaps2::county
-  "UtbildningsNiva"=c("6"),
-  "Alder"=c("16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95+"),
-  "Kon"=c("1","2"),
-  "ContentsCode"=c("000000I2"),
-  "Tid"=c("2020"))
+pxweb_query_list <- 
+  list("Region"=county$ln_kod,
+       "Kon"=c("1+2"),
+       "ContentsCode"=c("BE0101U1"),
+       "Tid"=c("2021"))
 
 # Download data 
-px_utb <- pxweb_get(url = "http://api.scb.se/OV0104/v1/doris/sv/ssd/UF/UF0506/UtbBefRegionR",
-                    query = pxweb_query_list)
+px_data <- 
+  pxweb_get(url = "http://api.scb.se/OV0104/v1/doris/sv/ssd/BE/BE0101/BE0101C/BefArealTathetKon",
+            query = pxweb_query_list)
 
-# Convert to data.frame and aggregate
-utb <- as.data.frame(px_utb, 
-                     column.name.type = "text",
-                     variable.value.type = "text") %>% 
-  janitor::clean_names() %>% 
-  group_by(region) %>% 
-  summarise(higher_education = sum(befolkning_16_95_ar))
+# Convert to data.frame 
+px_data_frame <- as.data.frame(px_data, column.name.type = "text", variable.value.type = "text")
 
-utb
+population_per_kvm <- px_data_frame |> 
+  clean_names()
 ```
 
 Unfortunately, we do not get the region codes from SCB. But if we remove the `" län` from the region names we can join it by name:
 
 ```{r}
-utb <- utb %>% 
+population_per_kvm <- population_per_kvm %>% 
   mutate(region = str_replace(region, " län", "")) 
 
-county <- left_join(county, utb, by = c("ln_namn" = "region"))
+county_pop <- left_join(county, population_per_kvm, by = c("ln_namn" = "region"))
 
-county
-```
-
-In order to make the map meaningful we want to analyze the proportion in the county with higher education. We can easily query total population data from SCB:
-
-```{r}
-pxweb_query_list <-  list(
-  "Region"= county$ln_kod,
-  "Alder"=c("tot"),
-  "Kon"=c("1","2"),
-  "ContentsCode"=c("BE0101A9"),
-  "Tid"=c("2020"))
-
-# Download data 
-px_population <- pxweb_get(url = "http://api.scb.se/OV0104/v1/doris/sv/ssd/BE/BE0101/BE0101A/FolkmangdNov",
-                           query = pxweb_query_list)
-
-# Convert to data.frame 
-population <- as.data.frame(px_population, column.name.type = "text", variable.value.type = "text")
-
-population <- population %>%
-  clean_names() %>% 
-  mutate(region = str_replace(region, " län", "")) %>% 
-  group_by(region) %>% 
-  summarise(population = sum(folkmangden_den_1_november))
-```
-
-If we join population data we can 
-
-```{r}
-county <- county %>% 
-  left_join(population, by = c("ln_namn" = "region")) %>% 
-  mutate(p_higher_education = round(higher_education / population, 2))
-
-county
+county_pop
 ```
 
 We can now easily visualize this data on a Swedish map
 
 ```{r fig.width=8}
 library(scales)
-ggplot(county, aes(fill = p_higher_education)) +
+ggplot(county_pop, aes(fill = log10(invanare_per_kvadratkilometer))) +
   geom_sf() +
   theme_swemap2() +
-  scale_fill_viridis_c(option = "magma", labels = percent) +
+  scale_fill_viridis_c(option = "magma", labels = number) +
   labs(
-    title = "Percent population with Higher Education",
-    fill = "% Higher\nEducation",
+    title = "",
+    fill = "log10(population\nper square meter)",
     caption = "Source: SCB"
   )
 ```
@@ -132,7 +93,7 @@ We can also create an interactive map with `simplevis`
 ```{r}
 library(simplevis)
 
-leaflet_sf_col(county, col_var = "p_higher_education")
+leaflet_sf_col(county_pop, col_var = "invanare_per_kvadratkilometer")
 ```
 
 ## DeSO & RegSO
