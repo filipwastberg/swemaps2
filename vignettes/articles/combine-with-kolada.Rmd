@@ -71,7 +71,7 @@ ggplot(skane_bygglov, aes(fill = value)) +
   labs(
     title = "Antal bostäder som beviljat bygglov",
     subtitle = "Antal bostäder som beviljats bygglov under två senast åren (T och T-1),\navser endast permanentboende, antal/1000 inv.",
-    caption = "Source: SKR and SCB, through Kolada",
+    caption = "Källa: SKR och SCB genom Kolada",
     fill = "Antal\nbygglov"
   ) +
   geom_label_repel(

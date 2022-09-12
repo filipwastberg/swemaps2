@@ -169,7 +169,7 @@ ggplot(gbg, aes(fill = area_km2)) +
 ```{r}
 ggplot(malmo, aes(fill = area)) +
   geom_sf() +
-  scale_fill_viridis_c() +
+  scale_fill_viridis_c(labels = scales::number) +
   theme_swemap2() +
   labs(
     title = "Malmö by area size",
