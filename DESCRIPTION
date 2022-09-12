@@ -33,4 +33,5 @@ Suggests:
     rKolada,
     simplevis,
     pxweb,
-    janitor
+    janitor,
+    ggrepel
