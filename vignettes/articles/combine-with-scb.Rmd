@@ -91,9 +91,9 @@ ggplot(county_pop, aes(fill = log10(invanare_per_kvadratkilometer))) +
 We can also create an interactive map with `simplevis` 
 
 ```{r}
-library(simplevis)
+library(mapview)
 
-leaf_sf_col(county_pop, col_var = "invanare_per_kvadratkilometer")
+mapView(county_pop, zcol = "invanare_per_kvadratkilometer")
 ```
 
 ## DeSO & RegSO

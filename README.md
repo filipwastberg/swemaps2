@@ -1,5 +1,4 @@
 
-[![R build status](https://github.com/filipwastberg/swemaps2/workflows/R-CMD-check/badge.svg)](https://github.com/filipwastberg/actions)
 # swemaps2
 
 The `swemaps2` package provide map objects to easily make beautiful maps
@@ -82,15 +81,15 @@ ggplot(aes(fill = random_number)) +
 
 <img src="man/figures/README-unnamed-chunk-5-1.png" width="75%" style="display: block; margin: auto;" />
 
-Using a package like `leaflet` and `simplevis` you can create
-interactive maps:
+Using a package like `leaflet` or `mapview` you can create interactive
+maps:
 
 ``` r
-library(simplevis)
+library(mapview)
 
 municipality %>% 
   mutate(random_number = rnorm(nrow(.), mean = 100, sd = 10)) %>% 
-  leaflet_sf_col(col_var = random_number)
+  mapView(zcol = "random_number")
 ```
 
 <img src="man/figures/kommun-map.png" width="75%" style="display: block; margin: auto;" />
@@ -117,7 +116,7 @@ works best if you first filter them.
 ``` r
 deso <- load_deso()
 #> Reading layer `DeSO_2018_v2' from data source 
-#>   `/private/var/folders/pn/9hhpnpd15_d2k3qp5k814nnh0000gq/T/RtmpJSjfgz/deso_2018_2021-10-21/DeSO_2018_v2.gpkg' 
+#>   `/private/var/folders/pn/9hhpnpd15_d2k3qp5k814nnh0000gq/T/Rtmp8efA6s/deso_2018_2021-10-21/DeSO_2018_v2.gpkg' 
 #>   using driver `GPKG'
 #> Simple feature collection with 5984 features and 7 fields
 #> Geometry type: POLYGON
@@ -142,7 +141,7 @@ deso %>%
 deso %>% 
   filter(kommunnamn == "Kalmar") %>% 
   mutate(random_number = round(rnorm(nrow(.), mean = 100, sd = 10), 0)) %>% 
-  leaflet_sf_col(col_var = random_number)
+  mapView(zcol = "random_number")
 ```
 
 <img src="man/figures/kalmar-map.png" width="75%" style="display: block; margin: auto;" />
