@@ -2,12 +2,12 @@ Package: swemaps2
 Type: Package
 Title: Swedish map data for ggplot and leaflet in R
 Version: 0.0.1
-Date: 2021-12-06
+Date: 2023-03-17
 Authors@R: 
     person(given = "Filip",
            family = "Wastberg",
            role = c("aut", "cre"),
-           email = "filip.wastberg@solita.se")
+           email = "filip.wastberg@gmail.com")
 Description: This package provide geographical data for making maps of Sweden in R.
 License: CC0
 LazyData: true
@@ -30,8 +30,7 @@ Suggests:
     knitr,
     scales,
     tidyverse,
-    rKolada,
-    simplevis,
+    mapview,
     pxweb,
     janitor,
     ggrepel

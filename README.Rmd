@@ -46,7 +46,7 @@ remotes::install_github("filipwastberg/swemaps2")
 
 `swemaps2` contain simple features (sf) objects that make it easy to create maps over Sweden.
 
-You can use these basic sf-objects to combine with data from SCB (using the [pxweb package](http://ropengov.github.io/pxweb/)) or Kolada (using the [rKolada package](https://github.com/lchansson/rKolada)).
+You can use these basic sf-objects to combine with data from SCB (using the [pxweb package](http://ropengov.github.io/pxweb/)).
 
 ```{r}
 county
@@ -78,14 +78,14 @@ ggplot(aes(fill = random_number)) +
   theme_swemap2()
 ```
 
-Using a package like `leaflet` and `simplevis` you can create interactive maps:
+Using a package like `leaflet` or `mapview` you can create interactive maps:
 
 ```{r eval=FALSE}
-library(simplevis)
+library(mapview)
 
 municipality %>% 
   mutate(random_number = rnorm(nrow(.), mean = 100, sd = 10)) %>% 
-  leaflet_sf_col(col_var = random_number)
+  mapView(zcol = "random_number")
 ```
 ```{r echo=FALSE}
 knitr::include_graphics("man/figures/kommun-map.png")
@@ -125,7 +125,7 @@ deso %>%
 deso %>% 
   filter(kommunnamn == "Kalmar") %>% 
   mutate(random_number = round(rnorm(nrow(.), mean = 100, sd = 10), 0)) %>% 
-  leaflet_sf_col(col_var = random_number)
+  mapView(zcol = "random_number")
 ```
 
 ```{r echo=FALSE}
