@@ -52,7 +52,7 @@ pxweb_query_list <-
 
 # Download data 
 px_data <- 
-  pxweb_get(url = "http://api.scb.se/OV0104/v1/doris/sv/ssd/BE/BE0101/BE0101C/BefArealTathetKon",
+  pxweb_get(url = "https://api.scb.se/OV0104/v1/doris/sv/ssd/BE/BE0101/BE0101C/BefArealTathetKon",
             query = pxweb_query_list)
 
 # Convert to data.frame 
@@ -109,12 +109,12 @@ deso_sthlm <- deso %>%
 pxweb_query_list <- 
   list("Region"= deso_sthlm$deso,
        "Alder"=c("0-19"),
-       "ContentsCode"=c("000001SM"),
+       "ContentsCode"=c("000006TA"),
        "Tid"=c("2019"))
 
 # Download data 
 px_data <- 
-  pxweb_get(url = "http://api.scb.se/OV0104/v1/doris/sv/ssd/HE/HE0110/HE0110I/Tab4InkDesoN1",
+  pxweb_get(url = "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/HE/HE0110/HE0110I/TabVX4InkDesoN1",
             query = pxweb_query_list)
 
 # Convert to data.frame 
@@ -124,6 +124,8 @@ px_sthlm <- as.data.frame(px_data, column.name.type = "text", variable.value.typ
 
 deso_sthlm <- deso_sthlm %>% 
   left_join(px_sthlm, by = c("deso" = "region"))
+
+
 ```
 
 Finally, we can use this data to create a map:
