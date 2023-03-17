@@ -24,8 +24,7 @@ remotes::install_github("filipwastberg/swemaps2")
 create maps over Sweden.
 
 You can use these basic sf-objects to combine with data from SCB (using
-the [pxweb package](http://ropengov.github.io/pxweb/)) or Kolada (using
-the [rKolada package](https://github.com/lchansson/rKolada)).
+the [pxweb package](http://ropengov.github.io/pxweb/)).
 
 ``` r
 county
@@ -116,7 +115,7 @@ works best if you first filter them.
 ``` r
 deso <- load_deso()
 #> Reading layer `DeSO_2018_v2' from data source 
-#>   `/private/var/folders/pn/9hhpnpd15_d2k3qp5k814nnh0000gq/T/Rtmp8efA6s/deso_2018_2021-10-21/DeSO_2018_v2.gpkg' 
+#>   `/private/var/folders/pn/9hhpnpd15_d2k3qp5k814nnh0000gq/T/RtmpVhEYFa/deso_2018_2021-10-21/DeSO_2018_v2.gpkg' 
 #>   using driver `GPKG'
 #> Simple feature collection with 5984 features and 7 fields
 #> Geometry type: POLYGON

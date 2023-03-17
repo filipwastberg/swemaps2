@@ -46,7 +46,7 @@ remotes::install_github("filipwastberg/swemaps2")
 
 `swemaps2` contain simple features (sf) objects that make it easy to create maps over Sweden.
 
-You can use these basic sf-objects to combine with data from SCB (using the [pxweb package](http://ropengov.github.io/pxweb/)) or Kolada (using the [rKolada package](https://github.com/lchansson/rKolada)).
+You can use these basic sf-objects to combine with data from SCB (using the [pxweb package](http://ropengov.github.io/pxweb/)).
 
 ```{r}
 county
